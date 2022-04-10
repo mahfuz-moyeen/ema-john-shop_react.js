@@ -14,13 +14,19 @@ const Header = () => {
         <nav className='header'>
             <img src={logo} alt="" />
             <div className='header-link'>
-                {
+                {/* {
                     links.map(link=><CustomLink
                     key={link.id}
                     to={link.link}
                     className='link-title'
                     >{link.name}</CustomLink>)
-                }
+                } */}
+                <CustomLink to='/' className='link-title'>Shop</CustomLink>
+                <CustomLink to='/orders' className='link-title'>Orders</CustomLink>
+                <CustomLink to='/inventory' className='link-title'>Inventory</CustomLink>
+                <CustomLink to='/about' className='link-title'>About</CustomLink>
+
+                <CustomLink to='/login' className='link-title'>Login</CustomLink>
             </div>
         </nav>
     );
