@@ -9,6 +9,9 @@
 }
 .header-link{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .link-title{
@@ -20,4 +23,24 @@
 .header .link-title:hover{
     color: orange;
     border-bottom: 1px solid orange;
+}
+nav{
+    color: white;
+}
+
+nav button{
+    border: none;
+    background: transparent;
+}
+.user-logout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid orange;
+    border-radius: 10px;
+    padding: 0 5px;
+}
+.user{
+    font-size: 17px;
+    font-family: monospace;
 }

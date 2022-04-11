@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init'
 
@@ -11,6 +11,9 @@ const Login = () => {
     const [error, setError] = useState('');
     const [signInWithEmailAndPassword, user] = useSignInWithEmailAndPassword(auth);
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location?.state?.from?.pathname || '/';
 
     const handleEmailBlur = event => {
         setEmail(event.target.value);
@@ -20,21 +23,23 @@ const Login = () => {
         setPassword(event.target.value);
     };
 
-    if(user){
-        navigate('/')
+    if (user) {
+        // navigate('/')
+        navigate(from, { replace: true });
+
     }
 
     const handleEmailSignIn = event => {
         event.preventDefault();
-        signInWithEmailAndPassword(email , password)
-        .then(()=>{
-            setError('');
-        })
-        .catch(e=>{
-            setError(e.message);
-        })
+        signInWithEmailAndPassword(email, password)
+            .then(() => {
+                setError('');
+            })
+            .catch(e => {
+                setError(e.message);
+            })
     }
-    
+
     return (
         <div className='form-container'>
             <div>
@@ -43,22 +48,22 @@ const Login = () => {
                 <form onSubmit={handleEmailSignIn}>
                     <div className="input-group">
                         <label htmlFor="email">Email</label>
-                        <input 
-                        onBlur={handleEmailBlur}
-                        type="email" 
-                        name='email' 
-                        required />
+                        <input
+                            onBlur={handleEmailBlur}
+                            type="email"
+                            name='email'
+                            required />
                     </div>
 
                     <div className="input-group">
                         <label htmlFor="password">Password</label>
-                        <input 
-                        onBlur={handlePasswordBlur}
-                        type="password" 
-                        name='password' 
-                        required />
+                        <input
+                            onBlur={handlePasswordBlur}
+                            type="password"
+                            name='password'
+                            required />
                     </div>
-                    <p style={{color:'red'}}>{error}</p>
+                    <p style={{ color: 'red' }}>{error}</p>
                     <input className='form-submit' type="submit" value="Login" />
                 </form>
                 <p>
