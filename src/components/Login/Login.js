@@ -24,9 +24,7 @@ const Login = () => {
     };
 
     if (user) {
-        // navigate('/')
         navigate(from, { replace: true });
-
     }
 
     const handleEmailSignIn = event => {

@@ -9,7 +9,9 @@
 8.  const [ createUserWithEmailAndPassword ] = useCreateUserWithEmailAndPassword(auth);
 9.  if user is created redirect to the shop page
 10.  useSignInWithEmailAndPassword(auth) for sign in
-11. 
+11. crate RequireAuth component ==> check user exists also tract use function
+12. in route wrap protected component by using Require auth component
+13. 
 
 
 

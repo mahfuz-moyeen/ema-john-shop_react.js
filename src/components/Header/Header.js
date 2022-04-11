@@ -21,6 +21,15 @@ const Header = () => {
                 <CustomLink to='/' className='link-title'>Shop</CustomLink>
                 <CustomLink to='/orders' className='link-title'>Orders</CustomLink>
                 <CustomLink to='/inventory' className='link-title'>Inventory</CustomLink>
+
+                {
+                    user?.uid
+                    &&
+                    <CustomLink
+                        to='/shipment' className='link-title'
+                    >Shipment</CustomLink>
+                }
+
                 <CustomLink to='/about' className='link-title'>About</CustomLink>
                 {/* {user?.uid && <p className='user'>{user.email}</p>} */}
                 {
