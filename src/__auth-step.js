@@ -7,7 +7,9 @@
 6. attach form field handler and for submit handler
 7. npm install --save react-firebase-hooks github
 8.  const [ createUserWithEmailAndPassword ] = useCreateUserWithEmailAndPassword(auth);
-
+9.  if user is created redirect to the shop page
+10.  useSignInWithEmailAndPassword(auth) for sign in
+11. 
 
 
 
